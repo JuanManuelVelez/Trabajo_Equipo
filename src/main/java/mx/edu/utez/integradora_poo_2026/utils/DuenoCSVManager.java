@@ -12,9 +12,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVManager {
+public class DuenoCSVManager {
 
-    private static final String FILE_PATH = "BD.csv";
+    private static final String FILE_PATH = "DUENO_BD.csv";
 
     public static List<String[]> readCSV() {
         List<String[]> todasLasLineas = new ArrayList<>();

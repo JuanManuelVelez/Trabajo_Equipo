@@ -1,7 +1,7 @@
 package mx.edu.utez.integradora_poo_2026.model.dao;
 
 import mx.edu.utez.integradora_poo_2026.model.Mascota;
-import mx.edu.utez.integradora_poo_2026.utils.CSVManager;
+import mx.edu.utez.integradora_poo_2026.utils.MascotaCSVManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +19,14 @@ public class MascotaDao implements Dao<Mascota, Integer>{
                 entidad.isVacunada() ? "1" : "0"
         };
 
-        CSVManager.addToCSV(datos);
+        MascotaCSVManager.addToCSV(datos);
         return true; // Cambiado a true para indicar éxito
     }
 
     @Override
     public List<Mascota> getAll() {
         List<Mascota> datos = new ArrayList<>();
-        List<String[]> lineas = CSVManager.readCSV();
+        List<String[]> lineas = MascotaCSVManager.readCSV();
         for(String[] linea : lineas) {
             if (linea.length < 7) continue;
 
@@ -45,7 +45,7 @@ public class MascotaDao implements Dao<Mascota, Integer>{
 
     @Override
     public Mascota getById(Integer id) {
-        List<String[]> lineas = CSVManager.readCSV();
+        List<String[]> lineas = MascotaCSVManager.readCSV();
         for(String[] linea : lineas) {
             if(linea.length > 0 && linea[0].trim().equals(id.toString())) {
                 Mascota m = new Mascota();
@@ -75,12 +75,12 @@ public class MascotaDao implements Dao<Mascota, Integer>{
         };
 
         String idString = String.valueOf(entidad.getId());
-        return CSVManager.updateRow(idString, datosActualizados);
+        return MascotaCSVManager.updateRow(idString, datosActualizados);
     }
 
     @Override
     public boolean delete(Integer id) {
         String idString = String.valueOf(id);
-        return CSVManager.deleteRow(idString);
+        return MascotaCSVManager.deleteRow(idString);
     }
 }

@@ -11,6 +11,7 @@ public class Dueno {
     private String correo;
     private String contrasena;
     private String foto_perfil;
+    private String codigo_recuperacion;
 
     public Dueno() {
     }
@@ -23,6 +24,17 @@ public class Dueno {
         this.correo = correo;
         this.contrasena = contrasena;
         this.foto_perfil = foto_perfil;
+    }
+
+    public Dueno(int id, String nombre, String apellidos, List<Mascota> mascotas, String correo, String contrasena, String foto_perfil, String codigo_recuperacion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.mascotas = mascotas;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.foto_perfil = foto_perfil;
+        this.codigo_recuperacion = codigo_recuperacion;
     }
 
     public int getId() {
@@ -93,5 +105,13 @@ public class Dueno {
     public String toString() {
         return nombre + ',' + apellidos + ',' + this.getMascotasId() +
                 ',' + correo + ',' + contrasena + ',' + foto_perfil;
+    }
+
+    public String getCodigo_recuperacion() {
+        return codigo_recuperacion;
+    }
+
+    public void setCodigo_recuperacion(String codigo_recuperacion) {
+        this.codigo_recuperacion = codigo_recuperacion;
     }
 }
