@@ -5,7 +5,7 @@ out/
 !**/src/test/**/target/
 
 # Mis credenciales secretas
-src/main/resources/credentials.properties
+src/main/resources/
 
 ### IntelliJ IDEA ###
 .idea/
