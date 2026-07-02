@@ -3,20 +3,20 @@
 <%@ include file="layout/header.jsp" %>
 <div class="row g-4">
     <div class="col-12">
-        <h1 class="mb-4">Bienvenidos a la veterinaria</h1>
+        <h1 class="mb-4">Bienvenidos a los alumnos </h1>
     </div>
 
     <div class="col-md-7">
         <div class="row">
-        <h4 class="text-secondary col-6">Aquí están todas las mascotas</h4>
+        <h4 class="text-secondary col-6">Aquí están todas los alumnos</h4>
         <a href="mascota" class="btn btn-primary col-6 align-content-center text-center carga"><i class="bi bi-arrow-clockwise"></i> Cargar mascotas</a>
         </div>
 
         <c:choose>
             <%-- Condición 1: Si la lista es nula o está vacía --%>
-            <c:when test="${empty listaMascotas}">
+            <c:when test="${empty listaAlumnos}">
                 <div class="alert alert-info text-center mt-4" role="alert">
-                    <i class="bi bi-info-circle-fill"></i> No hay mascotas registradas en este momento.
+                    <i class="bi bi-info-circle-fill"></i> No hay alumnos registradas en este momento.
                 </div>
             </c:when>
 
@@ -28,34 +28,23 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Especie</th>
+                            <th>Apellidos</th>
                             <th>Edad</th>
-                            <th>Personalidad</th>
-                            <th>Foto</th>
-                            <th>Vacunada</th>
+                            <th>Matricula </th>
+                            <th>Correo Electronico</th>
+                            <th>Sexo</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${listaMascotas}" var="mascota">
+                        <c:forEach items="${listaAlumnos}" var="alumno">
                             <tr>
-                                <td><strong>${mascota.id}</strong></td>
-                                <td>${mascota.nombre}</td>
-                                <td><span class="badge bg-secondary">${mascota.especie}</span></td>
-                                <td>${mascota.edad} años</td>
-                                <td>${mascota.personalidad}</td>
-                                <td>
-                                    <img src="${mascota.foto}" alt="${mascota.nombre}" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
-                                </td>
-                                <td>
-                                    <c:choose>
-                                        <c:when test="${mascota.vacunada}">
-                                            <span class="text-success"><i class="bi bi-check-circle-fill"></i> Sí</span>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span class="text-danger"><i class="bi bi-x-circle-fill"></i> No</span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
+                                <td><strong>${alumno.id}</strong></td>
+                                <td>${alumno.nombre}</td>
+                                <td><span class="badge bg-secondary">${alumno.apellidos}</span></td>
+                                <td>${alumno.edad} años</td>
+                                <td>${alumno.matricula}</td>
+                                <td>${alumno.correoElectronico}</td>
+                                <td>${alumno.sexo}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -68,26 +57,18 @@
     <div class="col-md-5">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h4 class="card-title text-primary mb-4"><i class="bi bi-plus-circle-fill"></i> ¡Registra a tu mascota!</h4>
+                <h4 class="card-title text-primary mb-4"><i class="bi bi-plus-circle-fill"></i> ¡Registra a tus alumnos!</h4>
 
-                <form action="mascota" method="POST">
+                <form action="alumno" method="POST">
                     <input type="hidden" name="action" value="create">
 
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre de la Mascota</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Firulais" required>
+                        <label for="nombre" class="form-label">Nombre de del alumno</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: emy" required>
                     </div>
-
                     <div class="mb-3">
-                        <label for="especie" class="form-label">Especie</label>
-                        <select class="form-select" id="especie" name="especie" required>
-                            <option value="" selected disabled>Selecciona una opción...</option>
-                            <option value="Perro">Perro</option>
-                            <option value="Gato">Gato</option>
-                            <option value="Ave">Ave</option>
-                            <option value="Roedor">Roedor</option>
-                            <option value="Otro">Otro</option>
-                        </select>
+                        <label for="apellidos" class="form-label">Apellidos de del alumno</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ej: castaneda" required>
                     </div>
 
                     <div class="mb-3">
@@ -96,20 +77,19 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="personalidad" class="form-label">Personalidad / Descripción</label>
-                        <input type="text" class="form-control" id="personalidad" name="personalidad" placeholder="Ej: Juguetón y muy cariñoso" required>
+                        <label for="matricula" class="form-label">Matricula / Descripción</label>
+                        <input type="text" class="form-control" id="matricula" name="matricula" placeholder="20253ds093" required>
                     </div>
-
                     <div class="mb-3">
-                        <label for="foto" class="form-label">URL de la Foto</label>
-                        <input type="url" class="form-control" id="foto" name="foto" placeholder="https://ejemplo.com/foto.jpg" required>
-                        <div class="form-text">Inserta un enlace web de la imagen de la mascota.</div>
+                        <label for="correoElectronico" class="form-label">Matricula / Descripción</label>
+                        <input type="text" class="form-control" id="correoElectronico" name="correoElectronico" placeholder="20253ds093@gmail.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sexo" class="form-label">Sexo / Descripción</label>
+                        <input type="text" class="form-control" id="sexo" name="sexo" placeholder="mujer" required>
                     </div>
 
-                    <div class="mb-4 form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="vacunada" name="vacunada" value="true">
-                        <label class="form-check-input-label" for="vacunada">¿Se encuentra vacunada?</label>
-                    </div>
+
 
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary carga"><i class="bi bi-save"></i> Guardar</button>
