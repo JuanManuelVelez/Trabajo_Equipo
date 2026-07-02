@@ -9,6 +9,9 @@ public class Alumno {
     private String correoElectronico;
     private String sexo;
 
+    public Alumno() {
+    }
+
     public Alumno(int id, String nombre, String especie, int edad, String personalidad, String correoElectronico, String sexo) {
         this.id = id;
         this.nombre = nombre;
@@ -18,6 +21,8 @@ public class Alumno {
         this.correoElectronico = correoElectronico;
         this.sexo = sexo;
     }
+
+
 
     public int getId() {
         return id;
