@@ -67,7 +67,7 @@
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: emy" required>
                     </div>
                     <div class="mb-3">
-                        <label for="apellidos" class="form-label">Apellidos de del alumno</label>
+                        <label for="apellidos" class="form-label">Apellidos del alumn@</label>
                         <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ej: castaneda" required>
                     </div>
 
@@ -81,11 +81,11 @@
                         <input type="text" class="form-control" id="matricula" name="matricula" placeholder="20253ds093" required>
                     </div>
                     <div class="mb-3">
-                        <label for="correoElectronico" class="form-label">Matricula / Descripción</label>
+                        <label for="correoElectronico" class="form-label">Correo Electronico / Descripción</label>
                         <input type="text" class="form-control" id="correoElectronico" name="correoElectronico" placeholder="20253ds093@gmail.com" required>
                     </div>
                     <div class="mb-3">
-                        <label for="sexo" class="form-label">Sexo / Descripción</label>
+                        <label for="sexo" class="form-label">Sexo (H/M)</label>
                         <input type="text" class="form-control" id="sexo" name="sexo" placeholder="mujer" required>
                     </div>
 
