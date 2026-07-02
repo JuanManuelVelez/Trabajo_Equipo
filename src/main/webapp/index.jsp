@@ -1,13 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ include file="layout/header.jsp" %>
-
-
-
-<%@ include file="layout/footer.jsp" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ include file="layout/header.jsp" %>
 <div class="row g-4">
     <div class="col-12">
         <h1 class="mb-4">Bienvenidos a los alumnos </h1>
@@ -95,6 +88,8 @@
                         <label for="sexo" class="form-label">Sexo / Descripción</label>
                         <input type="text" class="form-control" id="sexo" name="sexo" placeholder="mujer" required>
                     </div>
+
+
 
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary carga"><i class="bi bi-save"></i> Guardar</button>

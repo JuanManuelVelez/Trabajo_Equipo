@@ -9,7 +9,7 @@
     <div class="col-md-7">
         <div class="row">
             <h4 class="text-secondary col-6">Aquí están todas los alumnos</h4>
-            <a href="mascota" class="btn btn-primary col-6 align-content-center text-center carga"><i class="bi bi-arrow-clockwise"></i> Cargar mascotas</a>
+            <a href="alumno" class="btn btn-primary col-6 align-content-center text-center carga"><i class="bi bi-arrow-clockwise"></i> Cargar alumnos</a>
         </div>
 
         <c:choose>
