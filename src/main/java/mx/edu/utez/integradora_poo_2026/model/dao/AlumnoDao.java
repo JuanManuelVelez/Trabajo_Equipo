@@ -21,8 +21,8 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
             ps.setString(2, entidad.getApellidos());
             ps.setInt(3, entidad.getEdad());
             ps.setString(4, entidad.getMatricula());
-            ps.setString(5, entidad.getFoto());
-            ps.setInt(6, entidad.isVacunada() ? 1 : 0);
+            ps.setString(5, entidad.getCorreoElectronico());
+            ps.setString(6, entidad.getSexo());
 
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
@@ -41,15 +41,15 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                Alumno m = new Alumno();
-                m.setId(rs.getInt("id"));
-                m.setNombre(rs.getString("nombre"));
-                m.setEspecie(rs.getString("especie"));
-                m.setEdad(rs.getInt("edad"));
-                m.setPersonalidad(rs.getString("personalidad"));
-                m.setFoto(rs.getString("foto"));
-                m.setVacunada(rs.getInt("vacunada") == 1);
-                datos.add(m);
+                Alumno a = new Alumno();
+                a.setId(rs.getInt("id"));
+                a.setNombre(rs.getString("nombre"));
+                a.setApellidos(rs.getString("especie"));
+                a.setEdad(rs.getInt("edad"));
+                a.setMatricula(rs.getString("matricula"));
+                a.setCorreoElectronico(rs.getString("correoElectronico"));
+                a.setSexo(rs.getString("sexo"));
+                datos.add(a);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
     }
 
     @Override
-    public Mascota getById(Integer id) {
+    public Alumno getById(Integer id) {
         String sql = "SELECT * FROM MASCOTAS WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -66,15 +66,15 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Mascota m = new Mascota();
-                    m.setId(rs.getInt("id"));
-                    m.setNombre(rs.getString("nombre"));
-                    m.setEspecie(rs.getString("especie"));
-                    m.setEdad(rs.getInt("edad"));
-                    m.setPersonalidad(rs.getString("personalidad"));
-                    m.setFoto(rs.getString("foto"));
-                    m.setVacunada(rs.getInt("vacunada") == 1);
-                    return m;
+                    Mascota a = new Mascota();
+                    a.setId(rs.getInt("id"));
+                    a.setNombre(rs.getString("nombre"));
+                    a.setEspecie(rs.getString("especie"));
+                    a.setEdad(rs.getInt("edad"));
+                    a.setPersonalidad(rs.getString("personalidad"));
+                    a.setFoto(rs.getString("foto"));
+                    a.setVacunada(rs.getInt("vacunada") == 1);
+                    return a;
                 }
             }
         } catch (SQLException e) {

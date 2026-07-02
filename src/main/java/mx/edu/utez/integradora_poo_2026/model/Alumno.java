@@ -19,6 +19,10 @@ public class Alumno {
         this.sexo = sexo;
     }
 
+    public Alumno() {
+
+    }
+
     public int getId() {
         return id;
     }
