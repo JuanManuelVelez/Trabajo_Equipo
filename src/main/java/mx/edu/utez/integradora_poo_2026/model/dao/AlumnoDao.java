@@ -1,7 +1,6 @@
 package mx.edu.utez.integradora_poo_2026.model.dao;
 
 import mx.edu.utez.integradora_poo_2026.model.Alumno;
-import mx.edu.utez.integradora_poo_2026.model.Mascota;
 import mx.edu.utez.integradora_poo_2026.utils.SQLConnector;
 
 import java.sql.Connection;
@@ -41,15 +40,16 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                Alumno a = new Alumno();
-                a.setId(rs.getInt("id"));
-                a.setNombre(rs.getString("nombre"));
-                a.setApellidos(rs.getString("especie"));
-                a.setEdad(rs.getInt("edad"));
-                a.setMatricula(rs.getString("matricula"));
-                a.setCorreoElectronico(rs.getString("correoElectronico"));
-                a.setSexo(rs.getString("sexo"));
-                datos.add(a);
+                Alumno m = new Alumno();
+                m.setId(rs.getInt("id"));
+                m.setNombre(rs.getString("nombre"));
+                m.setApellidos(rs.getString("apellidos"));
+                m.setEdad(rs.getInt("edad"));
+                m.setMatricula(rs.getString("matricula"));
+                m.setCorreoElectronico(rs.getString("correoElectronico"));
+                m.setSexo(rs.getString("sexo"));
+
+                datos.add(m);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,22 +59,22 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
 
     @Override
     public Alumno getById(Integer id) {
-        String sql = "SELECT * FROM MASCOTAS WHERE id = ?";
+        String sql = "SELECT * FROM ALUMNOS WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    Mascota a = new Mascota();
-                    a.setId(rs.getInt("id"));
-                    a.setNombre(rs.getString("nombre"));
-                    a.setEspecie(rs.getString("especie"));
-                    a.setEdad(rs.getInt("edad"));
-                    a.setPersonalidad(rs.getString("personalidad"));
-                    a.setFoto(rs.getString("foto"));
-                    a.setVacunada(rs.getInt("vacunada") == 1);
-                    return a;
+                    Alumno m = new Alumno();
+                    m.setId(rs.getInt("id"));
+                    m.setNombre(rs.getString("nombre"));
+                    m.setApellidos(rs.getString("apellidos"));
+                    m.setEdad(rs.getInt("edad"));
+                    m.setMatricula(rs.getString("matricula"));
+                    m.setCorreoElectronico(rs.getString("correoElectronico"));
+                    m.setSexo(rs.getString("sexo"));
+                    return m;
                 }
             }
         } catch (SQLException e) {
@@ -84,17 +84,17 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
     }
 
     @Override
-    public boolean update(Mascota entidad) {
-        String sql = "UPDATE MASCOTAS SET nombre = ?, especie = ?, edad = ?, personalidad = ?, foto = ?, vacunada = ? WHERE id = ?";
+    public boolean update(Alumno entidad) {
+        String sql = "UPDATE ALUMNOS SET nombre = ?, apellidos = ?, edad = ?, matricula = ?, correoElectronico = ?, sexo = ? WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, entidad.getNombre());
-            ps.setString(2, entidad.getEspecie());
+            ps.setString(2, entidad.getApellidos());
             ps.setInt(3, entidad.getEdad());
-            ps.setString(4, entidad.getPersonalidad());
-            ps.setString(5, entidad.getFoto());
-            ps.setInt(6, entidad.isVacunada() ? 1 : 0);
+            ps.setString(4, entidad.getMatricula());
+            ps.setString(5, entidad.getCorreoElectronico());
+            ps.setString(6, entidad.getSexo());
             ps.setInt(7, entidad.getId());
 
             int filasAfectadas = ps.executeUpdate();
@@ -107,7 +107,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
 
     @Override
     public boolean delete(Integer id) {
-        String sql = "DELETE FROM MASCOTAS WHERE id = ?";
+        String sql = "DELETE FROM ALUMNOS WHERE id = ?";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
