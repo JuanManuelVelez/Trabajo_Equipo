@@ -29,6 +29,7 @@ public class AlumnoServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         try {
+            int id =  Integer.parseInt(request.getParameter("id"));
             String nombre = request.getParameter("nombre");
             String apellidos = request.getParameter("apellidos");
             int edad = Integer.parseInt(request.getParameter("edad"));
@@ -38,6 +39,7 @@ public class AlumnoServlet extends HttpServlet {
 
 
             Alumno nuevaALumno = new Alumno();
+            nuevaALumno.setId(id);
             nuevaALumno.setNombre(nombre);
             nuevaALumno.setApellidos(apellidos);
             nuevaALumno.setEdad(edad);

@@ -13,15 +13,16 @@ import java.util.List;
 public class AlumnoDao implements Dao<Alumno, Integer>{
     @Override
     public boolean create(Alumno entidad) {
-        String sql = "INSERT INTO ALUMNOS(nombre, apellidos, edad, matricula, correoElectronico, sexo) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ALUMNOS(id,nombre, apellidos, edad, matricula, correoElectronico, sexo) VALUES(?,?, ?, ?, ?, ?, ?)";
         try (Connection con = SQLConnector.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, entidad.getNombre());
-            ps.setString(2, entidad.getApellidos());
-            ps.setInt(3, entidad.getEdad());
-            ps.setString(4, entidad.getMatricula());
-            ps.setString(5, entidad.getCorreoElectronico());
-            ps.setString(6, entidad.getSexo());
+            ps.setInt(1, entidad.getId());
+            ps.setString(2, entidad.getNombre());
+            ps.setString(3, entidad.getApellidos());
+            ps.setInt(4, entidad.getEdad());
+            ps.setString(5, entidad.getMatricula());
+            ps.setString(6, entidad.getCorreoElectronico());
+            ps.setString(7, entidad.getSexo());
 
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;

@@ -9,7 +9,7 @@
     <div class="col-md-7">
         <div class="row">
             <h4 class="text-secondary col-6">Aquí están todas los alumnos</h4>
-            <a href="mascota" class="btn btn-primary col-6 align-content-center text-center carga"><i class="bi bi-arrow-clockwise"></i> Cargar mascotas</a>
+            <a href="alumno" class="btn btn-primary col-6 align-content-center text-center carga"><i class="bi bi-arrow-clockwise"></i> Cargar alumnos</a>
         </div>
 
         <c:choose>
@@ -61,7 +61,10 @@
 
                 <form action="alumno" method="POST">
                     <input type="hidden" name="action" value="create">
-
+                    <div class="mb-3">
+                        <label for="id" class="form-label">id</label>
+                        <input type="number" class="form-control" id="id" name="id" placeholder="1" required>
+                    </div>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre de del alumno</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: emy" required>
