@@ -89,8 +89,6 @@
                         <input type="text" class="form-control" id="sexo" name="sexo" placeholder="mujer" required>
                     </div>
 
-
-
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary carga"><i class="bi bi-save"></i> Guardar</button>
                     </div>
