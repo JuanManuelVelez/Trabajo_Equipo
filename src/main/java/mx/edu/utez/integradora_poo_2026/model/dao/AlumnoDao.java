@@ -37,7 +37,7 @@ public class AlumnoDao implements Dao<Alumno, Integer>{
     public List<Alumno> getAll() {
         List<Alumno> datos = new ArrayList<>();
         try (Connection con = SQLConnector.getConnection();
-             PreparedStatement ps = con.prepareStatement("SELECT * FROM ALUMNO");
+             PreparedStatement ps = con.prepareStatement("SELECT * FROM ALUMNOS");
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
